@@ -30,13 +30,13 @@ export const Name = styled.h1`
   margin: 0 auto;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: #1e201d;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: bold;
 `;
 
 export const Datas = styled.h2`
 margin: 0 auto;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-style: italic;
   color: #1e201d;

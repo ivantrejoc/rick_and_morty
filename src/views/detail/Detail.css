@@ -1,0 +1,58 @@
+.detailContent {
+  display: flex;
+  flex-direction: column;
+   margin-left: 30%;
+   margin-right: 30%;
+   margin-bottom: 20px;
+  align-items: center;
+  background-color: #122d35 ;
+  border: solid #39ff14 1px;
+  border-radius: 20px;
+    width: 40%;
+  padding: 20px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transition: transform 0.25s ease-out;
+}
+.detailContent:hover {
+  transform: scale(1.05);
+}
+.name {
+  margin-bottom: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: whitesmoke;
+  font-size: 2em;
+  font-weight: bold;
+
+}
+
+.data{
+    margin: 0 auto;
+  font-size: 1.50em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  color: whitesmoke;
+  margin-bottom: 5px;
+}
+
+.status{
+    margin: 0 auto;
+  font-size: 1.50em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  color: whitesmoke;
+}
+
+.image{
+    display: block;
+  width: auto;
+  height: auto;
+  border-radius: 20px; 
+  -webkit-transition: all 0.3s ease-in-out; /* Animation to fade in */
+  -ms-transition: all 0.3s ease-in-out; /* Animation to fade in */
+  transition: all 0.3s ease-in-out;
+  
+  
+}
+

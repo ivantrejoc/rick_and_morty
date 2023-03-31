@@ -7,7 +7,7 @@ export default function Cards(props) {
   return (
     <DivCards>
       {characters?.map((character) => (
-        <Card character={character} onClose={onClose} />
+        <Card key={character.id} character={character} onClose={onClose} />
       ))}
     </DivCards>
   );

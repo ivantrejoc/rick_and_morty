@@ -1,30 +1,39 @@
-import styled from "styled-components";
 
-export const Search = styled.div`
+
+ .searchCont{ 
+  position: relative;
   height: 60px;
-  width: 80%;
+  width: 75%;
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 25px;
-`;
+  margin-bottom: 20px;
+  
+  padding: 20px 100px 5px 5px;
+}
 
-export const SearchInput = styled.input`
-  width: 30%;
-  padding: 12px 20px;
+
+.searchInput{
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  padding: 25px 30px;
   border: solid #39ff14 1px;
   border-radius: 7px 0px 0px 7px;
   box-sizing: border-box;
   box-shadow: inset 0 0 5px #808080;
-`;
+}
 
-export const SearchButton = styled.button`
+
+.searchButton{ 
+  display: flex;
+  justify-content: flex-end;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   width: 10%;
-  padding: 12px 20px;
+  padding: 25px 30px;
   border: solid #39ff14 1px;
   border-radius: 0px 7px 7px 0px;
   box-sizing: border-box;
@@ -33,8 +42,8 @@ export const SearchButton = styled.button`
   font-family: helvetica, arial;
   font-weight: bold;
   text-align: justify;
-  &: hover {
+  hover {
     transform: scale(1.05);
     background-color: #a7ada5;
   }
-`;
+}

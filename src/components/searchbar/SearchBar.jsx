@@ -1,9 +1,16 @@
-import{Search, SearchInput, SearchButton} from './searchbar.js';
+import { useState } from 'react';
+import "./searchbar.css";
+
 export default function SearchBar(props) {
+   const [input, setInput]= useState("");
+   const handleInputChange = (event)=>{
+      const {value}=event.target;
+      setInput(value)
+   };
    return (
-      <Search>
-         <><SearchInput type='search' placeholder="Buscar personaje..." />
-         <SearchButton onClick={() => props.onSearch("Recibiendo nuevo ID")}>Agregar</SearchButton></> 
-      </Search>
+      <div className="searchCont">
+         <input className='searchInput' type='search' onChange={handleInputChange} placeholder="Buscar personaje..." />
+         <button className='searchButton' onClick={()=>props.onSearch(input)}>Agregar</button>
+      </div>
    );
 }

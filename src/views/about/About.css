@@ -1,0 +1,75 @@
+.aboutContent {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 20px;
+  align-items: center;
+  background: #122d35;
+  border: solid #39ff14 1px;
+  border-radius: 20px;  
+  padding: 20px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transition: transform 0.25s ease-out;
+}
+
+.title {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: whitesmoke;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+  font-style:normal;
+  font-weight: lighter;
+  font-size: 25px;
+  line-height: 52px;
+  text-align: center;
+  color: whitesmoke;
+  margin-bottom: 80px;
+}
+
+.credits{
+  font-family: "Franklin Gothic", "Arial Narrow", Arial, sans-serif;
+  font-style: normal;
+  font-size: 25px;
+  line-height: 52px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.hr{
+  height: 3px;
+  width: 80%;
+  border-color: grey;
+  background-color: whitesmoke;
+  border-radius: 1px;
+}
+
+.infoContent{
+  display: flex;
+  flex-direction: column;
+}
+
+.profilePhoto{
+    padding: 20px;
+  height: 180px;
+  width: 180px;
+  align-items: center;
+}
+
+.links{
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+  border-bottom: 5px;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 52px;  
+}
