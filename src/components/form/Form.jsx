@@ -61,7 +61,7 @@ export default function Form({login}) {
             onChange={handleChange}
             className="inputs"
           />
-          {errors.username ? <span>{errors.username}</span> : null}
+          {errors.username ? <span className="errors">{errors.username}</span> : null}
         </div>
 
         <div>
@@ -76,7 +76,7 @@ export default function Form({login}) {
             onChange={handleChange}
             className="inputs"
           />
-          {errors.password ? <span>{errors.password}</span> : null}
+          {errors.password ? <span className="errors">{errors.password}</span> : null}
         </div>
         <button type="submit" className="submitButton" >
           Login
