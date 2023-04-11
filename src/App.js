@@ -7,6 +7,7 @@ import About from "./views/about/About.jsx";
 import Detail from "./views/detail/Detail.jsx";
 import Cards from "./components/cards/Cards.jsx";
 import LandingPage from "./views/landingpage/landing";
+import Favorites from "./views/favorites/Favorites.jsx";
 
 function App() {
   // const [input, setInput] = useState("");
@@ -39,7 +40,7 @@ function App() {
   function login(userData) {
     if (userData.password === password && userData.username === username) {
       setAccess(true);
-      navigate("/Home");
+      navigate("/home");
     }
   }
 
@@ -60,18 +61,20 @@ function App() {
     <div className="App" style={{ padding: "25px" }}>
       <img className="Titleimg" src={logoRM} alt="rm title" />
       {location.pathname !== "/" && (
-        <Nav onSearch={onSearch} logout={logout} />
+        <Nav onSearch={onSearch} 
+        logout={logout} />
       )}
       <Routes>
         <Route exact path="/" element={<LandingPage login={login} />} />
         {access && ( 
           <>          
         <Route
-          path="/Home"
+          path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
-        <Route path="/About" element={<About />} />
-        <Route path="/Detail/:detailId" element={<Detail />} /> 
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:detailId" element={<Detail />} /> 
+        <Route path="/favorites" element={<Favorites />} />
         </>
         )}
       </Routes>
