@@ -14,5 +14,5 @@ const mapStateToProps = (state) => {
     myFavorites: state.myFavorites,
   };
 };
-
+//holaa
 export default connect(mapStateToProps)(Favorites);
