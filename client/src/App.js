@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import logoRM from "./assets/title-rick-and-morty.png";
@@ -14,16 +15,25 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
 
-  const onSearch = (id) => {
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("No hay personajes con ese ID");
-        }
-      });
+  const onSearch = async(id) => {
+    try{
+
+    }catch(error){
+      
+    }
+
+
+
+    // *** CON FETCH promises ***
+    // fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.name) {
+    //       setCharacters((oldChars) => [...oldChars, data]);
+    //     } else {
+    //       window.alert("No hay personajes con ese ID");
+    //     }
+    //   });
   };
 
   const onClose = (id) => {
@@ -38,11 +48,21 @@ function App() {
   const password = "1password";
 
   function login(userData) {
-    if (userData.password === password && userData.username === username) {
-      setAccess(true);
-      navigate("/home");
-    }
+    const { username, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${username}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
   }
+
+  // function login(userData) {
+  //   if (userData.password === password && userData.username === username) {
+  //     setAccess(true);
+  //     navigate("/home");
+  //   }
+  // }
 
   //logout
   function logout() {
@@ -54,28 +74,22 @@ function App() {
     !access && navigate("/");
   }, [access]);
 
-  
-  
-
   return (
     <div className="App" style={{ padding: "25px" }}>
       <img className="Titleimg" src={logoRM} alt="rm title" />
-      {location.pathname !== "/" && (
-        <Nav onSearch={onSearch} 
-        logout={logout} />
-      )}
+      {location.pathname !== "/" && <Nav onSearch={onSearch} logout={logout} />}
       <Routes>
         <Route exact path="/" element={<LandingPage login={login} />} />
-        {access && ( 
-          <>          
-        <Route
-          path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
-        />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:detailId" element={<Detail />} /> 
-        <Route path="/favorites" element={<Favorites />} />
-        </>
+        {access && (
+          <>
+            <Route
+              path="/home"
+              element={<Cards characters={characters} onClose={onClose} />}
+            />
+            <Route path="/about" element={<About />} />
+            <Route path="/detail/:detailId" element={<Detail />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </>
         )}
       </Routes>
     </div>

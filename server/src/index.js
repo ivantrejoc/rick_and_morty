@@ -1,22 +1,26 @@
-const http = require("http");
+const express = require("express");
+const router = require("./routes");
+const server = express();
 const PORT = 3001;
-const characters = require("./utils/data");
 
-http
-  .createServer((req, resp) => {
-    const { url } = req;
-    console.log("peticion"+ url );
-    resp.setHeader("Access-Control-Allow-Origin", "*");
+server.use((req, res, next) => {                             //middlewares, propuestos por el readme
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', 'true');    // siempre van antes de server.listen
+  res.header(
+     'Access-Control-Allow-Headers',
+     'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header(
+     'Access-Control-Allow-Methods',
+     'GET, POST, OPTIONS, PUT, DELETE'
+  );
+  next();
+});
 
-    if (url.includes("/rickandmorty/character/")) {
-      const urlId = url.split("/").pop();
-      let found = characters.find(
-        (character) => character.id === Number(urlId)
-      );
+server.use(express.json());     //middleware que convierte todo el json a objeto
+server.use("/rickandmorty", router); //middleware
 
-      resp
-        .writeHead(200, { "Content-Type": "application/json" })
-        .end(JSON.stringify(found));
-    }
-  })
-  .listen(PORT, "localhost");
+server.listen(PORT, ()=>{
+  console.log("Server raised at port: "+ PORT);
+})
+
