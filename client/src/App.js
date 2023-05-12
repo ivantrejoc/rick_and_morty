@@ -15,14 +15,17 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
 
-  const onSearch = async(id) => {
-    try{
-
-    }catch(error){
-      
+  const onSearch = async (id) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
+      } 
+    } catch (error) {
+      window.alert("No hay personajes con ese ID");
     }
-
-
 
     // *** CON FETCH promises ***
     // fetch(`http://localhost:3001/rickandmorty/character/${id}`)
@@ -47,14 +50,28 @@ function App() {
   const username = "ejemplo@gmail.com";
   const password = "1password";
 
-  function login(userData) {
-    const { username, password } = userData;
+  const login = async (userData) => {
+try{
+const { username, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${username}&password=${password}`).then(({ data }) => {
+    const {data} = await axios.get(URL + `?email=${username}&password=${password}`)
       const { access } = data;
       setAccess(data);
       access && navigate("/home");
-    });
+    
+}catch(error){
+  alert(error.message);
+}
+
+
+    // *** CON AXIOS ***
+    // const { username, password } = userData;
+    // const URL = "http://localhost:3001/rickandmorty/login/";
+    // axios(URL + `?email=${username}&password=${password}`).then(({ data }) => {
+    //   const { access } = data;
+    //   setAccess(data);
+    //   access && navigate("/home");
+    // });
   }
 
   // function login(userData) {
