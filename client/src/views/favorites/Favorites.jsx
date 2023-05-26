@@ -3,7 +3,7 @@ import { orderCards, filterCards } from "../../redux/actions.js";
 import Cards from "../../components/cards/Cards.jsx";
 
 function Favorites(props) {
-  const { myFavorites, onClose } = props;
+  const { myFavorites } = props;
   const dispatch = useDispatch();
 //faltan estilos de etiquetas select
   return (
@@ -22,7 +22,7 @@ function Favorites(props) {
         <option value="Genderless">Genderless</option>
         </select>
       </div>
-      <Cards characters={myFavorites} onClose={onClose} />;
+      <Cards characters={myFavorites} />;
     </div>
   );
 }

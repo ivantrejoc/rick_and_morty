@@ -2,6 +2,7 @@ const express = require("express");
 const router = require("./routes");
 const server = express();
 const PORT = 3001;
+const { conn } = require('./DB_connection');
 
 server.use((req, res, next) => {                             //middlewares, propuestos por el readme
   res.header('Access-Control-Allow-Origin', '*');

@@ -55,7 +55,7 @@ try{
 const { username, password } = userData;
     const URL = "http://localhost:3001/rickandmorty/login/";
     const {data} = await axios.get(URL + `?email=${username}&password=${password}`)
-      const { access } = data;
+      const access  = data;
       setAccess(data);
       access && navigate("/home");
     

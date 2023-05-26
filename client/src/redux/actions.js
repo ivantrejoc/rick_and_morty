@@ -35,10 +35,10 @@ export const addFavorite = (character) => {
 //   };
 // };
 
-export const removeFavorite = async (id) => {
+export const removeFavorite =  (id) => {
   return async (dispatch) => {
     try{
-      const endpoint = "http://localhost:3001/rickandmorty/fav/" + id; //modifica array de favs en el back
+      const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`; //modifica array de favs en el back
     const { data } = await axios.delete(endpoint);
     return dispatch({
             type: REMOVE_FAVORITE,
